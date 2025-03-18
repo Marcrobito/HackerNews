@@ -6,8 +6,9 @@ import com.raven.hackernews.domain.StoryFetchDataSource
 import com.raven.hackernews.domain.StoryLocalDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class StoryDataSourceImpl(
+class StoryDataSourceImpl @Inject constructor(
     private val localDataSource: StoryLocalDataSource,
     private val storyFetchDataSource: StoryFetchDataSource
 ) : StoryDataSource {

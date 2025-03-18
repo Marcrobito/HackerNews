@@ -5,8 +5,10 @@ import com.raven.hackernews.data.toStoryEntity
 import com.raven.hackernews.data.toStoryList
 import com.raven.hackernews.domain.Story
 import com.raven.hackernews.domain.StoryLocalDataSource
+import javax.inject.Inject
 
-class RoomStoryDeletionDataSourceImpl(private val storiesDao: StoryDao) : StoryLocalDataSource {
+class StoryLocalDataSourceImpl @Inject constructor(private val storiesDao: StoryDao) :
+    StoryLocalDataSource {
     override suspend fun getNonDeletedStories(page: Int, queryTerm: String): List<Story> {
         return storiesDao.getAllStories(
             queryTerm = queryTerm,
