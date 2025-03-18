@@ -5,6 +5,5 @@ data class Story (
     val title:String,
     val author:String,
     val url:String,
-    val createdAt:Long,
-    val isVisible:Boolean = true
+    val createdAt:Long
 )
