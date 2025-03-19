@@ -60,6 +60,7 @@ dependencies {
 
     // 🥸 Networking (Retrofit + OkHttp)
     implementation(libs.squareup.okhttp)
+    implementation(libs.squareup.okhttp.logging.interceptor)
     implementation(libs.squareup.retrofit2)
 
     // 🥸 Moshi (JSON Serialization)
@@ -70,6 +71,7 @@ dependencies {
 
     // 🥸 Hilt (Dependency Injection)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.android.compiler)
 
     // 🥸 Room (Local Database)
@@ -84,7 +86,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
-    // 🔹 Debugging tools
+    // 🥸 Debugging tools
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
