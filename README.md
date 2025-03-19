@@ -27,5 +27,3 @@ The project is organized into several key modules and packages:
         - **network:** Retrofit configuration (or API connectivity to Hacker News).
         - **room:** Room database configuration, entities, and DAOs.
         - **repositories:** Repository implementations (e.g., `StoryRepositoryImpl`) that orchestrate remote and local data access.
-- **buildSrc/**  
-  Manages dependencies, versions, and plugins, ensuring consistency across the project.
