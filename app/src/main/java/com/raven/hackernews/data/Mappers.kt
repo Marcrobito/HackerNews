@@ -16,7 +16,7 @@ fun StoryEntity.toStory() = Story(
 )
 
 fun StoryDto.toStory() = Story(
-    id, title, author, url, createdAt.toTimestamp()
+    id, title, author, url ?: storyUrl ?: "", createdAt.toTimestamp()
 )
 
 fun List<StoryEntity>.toStoryList() = this.map { it.toStory() }

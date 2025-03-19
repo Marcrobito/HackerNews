@@ -9,9 +9,9 @@ interface HackerNewsApi {
      * @param page The page number to fetch (default is 1).
      * @return A [StoriesResponseDto] containing the list of stories.
      */
-    @GET("search_by_date")
+    @GET("search")
     suspend fun getStories(
-        @Query("tags") tags: String = "story",
+        @Query("query") query: String = "story",
         @Query("page") page: Int = 1
     ): StoriesResponseDto
 }

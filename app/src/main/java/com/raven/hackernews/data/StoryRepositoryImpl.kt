@@ -6,12 +6,10 @@ import com.raven.hackernews.domain.StoryRepository
 
 class StoryRepositoryImpl(private val storyDataSource: StoryDataSource) : StoryRepository {
 
-    private var page = 0
-    override suspend fun getStories(queryTerm:String): List<Story> {
-        val stories = storyDataSource.getStories(page, queryTerm)
-        page++
-        return stories
-    }
+
+    override suspend fun getStories(queryTerm: String, page: Int): List<Story> =
+        storyDataSource.getStories(page, queryTerm)
+
 
     override suspend fun deleteStory(storyId: String) {
         storyDataSource.deleteStory(storyId)

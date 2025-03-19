@@ -12,7 +12,7 @@ interface StoryRepository {
      * @param page The page number to fetch (default is 1).
      * @return A list of non-deleted stories.
      */
-    suspend fun getStories(queryTerm:String): List<Story>
+    suspend fun getStories(queryTerm:String, page:Int = 1): List<Story>
 
     /**
      * Marks a story as deleted by storing its ID in the local deletion tracking system.
