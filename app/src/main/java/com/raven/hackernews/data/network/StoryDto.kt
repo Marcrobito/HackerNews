@@ -5,7 +5,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class StoryDto(
-    @Json(name = "story_id") val id: String,
+    @Json(name = "story_id") val storyId: String?,
+    @Json(name = "id") val id: String?,
     @Json(name = "title") val title: String,
     @Json(name = "author") val author: String,
     @Json(name = "url") val url: String? = null,

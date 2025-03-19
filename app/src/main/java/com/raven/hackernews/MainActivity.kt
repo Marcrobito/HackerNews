@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.raven.hackernews.ui.navigation.MainNavigation
 import com.raven.hackernews.ui.screens.StoryScreen
 import com.raven.hackernews.ui.theme.HackerNewsTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HackerNewsTheme {
-                StoryScreen()
+                MainNavigation()
             }
         }
     }

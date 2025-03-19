@@ -30,7 +30,10 @@ import com.raven.hackernews.viewmodels.HackerNewsState
 import com.raven.hackernews.viewmodels.StoriesViewModel
 
 @Composable
-fun StoryScreen(storyViewModel: StoriesViewModel = hiltViewModel()) {
+fun StoryScreen(
+    storyViewModel: StoriesViewModel = hiltViewModel(),
+    onStoryClicked: (String) -> Unit
+) {
     var queryTerm by remember { mutableStateOf("") }
     val state by storyViewModel.state.collectAsState()
     Box {
@@ -55,7 +58,9 @@ fun StoryScreen(storyViewModel: StoriesViewModel = hiltViewModel()) {
                 }
             }
             StoryList(state.stories, onClick = { story ->
-                story.url
+                if (story.url.isNotEmpty()) {
+                    onStoryClicked(story.url)
+                }
             }, onDelete = { story ->
                 storyViewModel.onUserAction(HackerNewsActions.DeleteStory(story = story))
             }, onRefresh = {
@@ -78,5 +83,5 @@ fun StoryScreen(storyViewModel: StoriesViewModel = hiltViewModel()) {
 @Preview
 @Composable
 fun StoryScreen_Preview() {
-    StoryScreen()
+    //StoryScreen({})
 }

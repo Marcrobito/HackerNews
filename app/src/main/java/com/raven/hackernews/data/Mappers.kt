@@ -6,6 +6,7 @@ import com.raven.hackernews.domain.Story
 import java.time.Instant
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoField
+import java.util.Date
 
 fun Story.toStoryEntity(queryTerm: String) = StoryEntity(
     id, title, author, url, createdAt, queryTerms = listOf(queryTerm)
@@ -16,7 +17,7 @@ fun StoryEntity.toStory() = Story(
 )
 
 fun StoryDto.toStory() = Story(
-    id, title, author, url ?: storyUrl ?: "", createdAt.toTimestamp()
+    id ?: storyId ?: Date().time.toString(), title, author, url ?: storyUrl ?: "", createdAt.toTimestamp()
 )
 
 fun List<StoryEntity>.toStoryList() = this.map { it.toStory() }
